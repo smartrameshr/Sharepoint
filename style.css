@@ -1,0 +1,416 @@
+/* --- CSS Reset & Variables --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-dark: #071d49;
+    --primary-blue: #14387d;
+    --accent-blue: #0056b3;
+    --bg-light: #f4f6f9;
+    --border-color: #b0c4de;
+    --poll-bg: #fdf6e2;
+    --text-main: #2b3a4a;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    background-color: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Header Block --- */
+.header {
+    background-color: var(--primary-dark);
+    color: var(--white);
+}
+
+.header__top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 24px;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header__menu {
+    display: flex;
+    list-style: none;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.header__link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.header__link:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.header__link--dropdown::after {
+    content: " ▼";
+    font-size: 8px;
+    opacity: 0.7;
+}
+
+.header__status {
+    font-size: 11px;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.header__sub-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background-color: var(--primary-dark);
+    position: relative;
+}
+
+.header__brand {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.header__sub-menu {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+.header__sub-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.header__sub-link:hover {
+    color: #93c5fd;
+}
+
+.header__sub-link--active {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.header__sub-link--dropdown::after {
+    content: " ▼";
+    font-size: 8px;
+    opacity: 0.7;
+}
+
+.header__update-status {
+    color: #34d399;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    background: rgba(52, 211, 153, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+/* --- Hamburger Menu Element --- */
+.header__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.header__hamburger-line {
+    width: 100%;
+    height: 2.5px;
+    background-color: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger active animation state */
+.header__hamburger--open .header__hamburger-line:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+
+.header__hamburger--open .header__hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.header__hamburger--open .header__hamburger-line:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* --- Hero Banner Block --- */
+.hero {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #0d2c6c 100%);
+    color: var(--white);
+    padding: 40px 24px 45px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero__content {
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.hero__title {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.hero__subtitle {
+    font-size: 16px;
+    color: #cbd5e1;
+    font-weight: 400;
+}
+
+/* --- Main Layout Grid --- */
+.layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    max-width: 1350px;
+    margin: 35px auto;
+    padding: 0 24px;
+}
+
+/* --- Sidebar Block --- */
+.sidebar__title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 14px;
+    letter-spacing: 0.8px;
+}
+
+.sidebar__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar__link {
+    display: block;
+    padding: 13px 16px;
+    color: var(--accent-blue);
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.sidebar__link:hover {
+    background-color: var(--bg-light);
+    border-color: #93c5fd;
+    color: #1d4ed8;
+}
+
+/* --- Feed Content Block --- */
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.section__title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 14px;
+    letter-spacing: 0.8px;
+}
+
+/* --- Grid Systems --- */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+.grid--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* --- Card Components --- */
+.card {
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card--media .card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card--media .card__label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(7, 29, 73, 0.85);
+    backdrop-filter: blur(4px);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    padding: 6px;
+    letter-spacing: 0.5px;
+}
+
+.card--placeholder {
+    font-weight: 600;
+    color: #64748b;
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+}
+
+.card--accent {
+    color: #475569;
+    background-color: #e2e8f0;
+}
+
+/* --- Newsletter Banner Component --- */
+.newsletter-banner {
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 20px;
+}
+
+.newsletter-banner__media {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.newsletter-banner__img {
+    width: 130px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}
+
+.newsletter-banner__link {
+    color: #334155;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.newsletter-banner__link:hover {
+    color: var(--accent-blue);
+    text-decoration: underline;
+}
+
+/* --- Poll Block Component --- */
+.poll-block {
+    background-color: var(--poll-bg);
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.poll-block__text {
+    font-size: 14px;
+    color: #78350f;
+    font-weight: 500;
+}
+
+/* --- Responsive Layout & Hamburger Adjustments --- */
+@media (max-width: 1024px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .header__top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .header__hamburger {
+        display: flex;
+    }
+
+    .header__sub-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-dark);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
+        border-top: 1px solid rgba(255,255,255,0.1);
+        gap: 16px;
+        z-index: 99;
+    }
+
+    .header__sub-menu--active {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid--3-cols {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter-banner__media {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .newsletter-banner__img {
+        width: 100%;
+        height: 120px;
+    }
+}
